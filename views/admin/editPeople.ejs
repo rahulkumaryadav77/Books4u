@@ -1,0 +1,41 @@
+<%- include('../partials/header') %>
+<%- include('../partials/adminNav') %>
+
+<h1>Add Peoples</h1>
+
+<form method="POST" action="/updatePeople/<%= people.name %>?_method=PUT">
+
+    <div>
+        <input type="text" name="field" placeholder="Feild" value="<%= people.field %>">
+    </div>
+    <div>
+        <input type="text" name="name" placeholder="Name" value="<%= people.name %>">
+    </div>
+    <div>
+        <input type="text" name="image" placeholder="Image" value="<%= people.image %>">
+    </div>
+    <div>
+        <textarea name="description" rows="20" cols="80"><%= people.description %></textarea>
+    </div>
+    <div>
+        <input type="button" id="recomend" value="Books recommended">
+    </div>
+    <div id="input">
+        <% let len = p.length %> 
+        <% for(let i = 0; i < len; i++) { %>
+            <input type="text" name="recomendation" value="<%= p[i] %>"><br>
+        <% } %>
+    </div>
+    <script>
+        const btn = document.querySelector('#recomend');
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            var input = document.createElement('div');
+            input.innerHTML = '<input type="text" name="recomendation" placeholder="Recommendation">';
+            document.getElementById('input').appendChild(input);
+        });
+    </script>
+    <button> submit </button>
+</form>
+
+<%- include('../partials/footer') %>

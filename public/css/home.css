@@ -1,0 +1,173 @@
+.navbar-toggler {
+    border-color: rgb(355, 355, 355) !important;
+    outline: none !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
+
+.search {
+    border-right: none !important;
+    border-color: #0dcaf0;
+    border-radius: 0px !important;
+}
+
+.btn-srch {
+    border-left: none !important;
+    border-radius: 0px !important;
+}
+
+.search:focus {
+    box-shadow: none !important;
+}
+
+#activeItem {
+    font-weight: bold;
+    color: #0dcaf0 !important;
+}
+
+.nav-link {
+    font-size: large;
+    color: #000 !important;
+}
+
+.nav-link:hover {
+    color: #0dcaf0 !important;
+}
+
+.banner {
+    background: url("/img/library bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+}
+
+.banner-head {
+    font-family: Georgia, serif;
+    font-weight: bolder;
+    font-size: 3rem;
+}
+
+.banner-head span {
+    /* color: #100f10; */
+    position: relative;
+    text-transform: uppercase;
+    /* -webkit-text-stroke: 0.3vw #f7f7fe; */
+}
+
+.banner-head span::before {
+    /* top: 0; */
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: #0dcaf0;
+    overflow: hidden;
+    position: absolute;
+    content: attr(data-text);
+    /* border-right: 2px solid #37b9f1; */
+    -webkit-text-stroke: 0vw #f7f7fe;
+    animation: animate 6s linear infinite;
+}
+
+@keyframes animate {
+
+    0%,
+    10%,
+    100% {
+        width: 0;
+    }
+
+    70%,
+    90% {
+        width: 100%;
+    }
+}
+
+.padding-left>.col-3 {
+    padding-left: 0px !important;
+}
+
+/* @media only screen and (max-width: 483px) {
+    .banner-head {
+        font-size: 2rem;
+    }
+} */
+.typewriter > h3 {
+    text-shadow: 0 0 3px #0dcaf0, 0 0 5px #0dcaf0;
+}
+
+#text {
+    overflow: hidden;
+    margin: 0 auto;
+    display: inline-block;
+    font-weight: normal;
+    color: #0dcaf0;
+}
+
+#text:after {
+    content: '';
+    display: inline-block;
+    background-color: white;
+    margin-left: 2px;
+    height: 25px;
+    width: 4px;
+    animation: cursor 0.4s infinite;
+}
+
+/* The typewriter cursor effect */
+@keyframes cursor {
+    0% {
+        opacity: 1;
+    }
+
+    49% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.mask {
+    -webkit-mask: linear-gradient(180deg, rgba(2, 0, 36, 0), rgba(1, 0, 24, .9) 30%, #010013 50%, rgba(1, 0, 10, .9) 70%, transparent);
+}
+
+.img-js {
+    border-radius: 5px;
+    /* box-shadow: 0 3px 3px -2px #6e6e6e; */
+}
+
+.animate {
+    filter: contrast(150%);
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+    animation-fill-mode: none;
+    animation-play-state: running;
+}
+
+@keyframes floating {
+    from {
+        transform: translate(0, 0px);
+    }
+
+    65% {
+        transform: translate(0, -8px);
+    }
+
+    to {
+        transform: translate(0, -0px);
+    }
+}
+
+.btn:hover {
+    color: #fff;
+}

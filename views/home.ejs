@@ -1,0 +1,244 @@
+<%- include('./partials/header') %>
+
+<section class="text-light text-center text-md-start p-5 banner">
+    <div class="container">
+        <div>
+            <div class="row">
+                <div class="col-lg-8 col-md col-sm">
+                    <h1 class="banner-head">READERS <span class="club" data-text="Club">Club</span></h1>
+                    <div class="typewriter">
+                        <h3 class="py-3" style="font-family: 'Anonymous Pro', monospace;">We spend untold moments on the internet library looking for bona fide books and recommendations from people we look up to. Browse our constantly evolving website. Happy Reading!</h3>
+                        <h4 class="py-3" id="text">The man who doesn't read good books has no advantage over the man who can't read them.</h4>
+                    </div>
+                    <a href="/allBooks" class="btn btn-lg btn-info">Browse Books</a>
+                </div>
+                <div class="col-4 d-none d-sm-block d-sm-none d-md-block mask">
+                    <div class="row padding-left">
+                        <div class="col-3">
+                            <div data-tilt data-tilt-glare="true" data-tilt-scale="1.1">
+                                <img class="img-fluid img-js" src="/img/Sapiens.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div data-tilt data-tilt-glare="true" data-tilt-scale="1.1">
+                                <img class="img-fluid img-js" src="/img/zeroToOne.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div data-tilt data-tilt-glare="true" data-tilt-scale="1.1">
+                                <img class="img-fluid img-js" src="/img/richDadPoorDad.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div data-tilt data-tilt-glare="true" data-tilt-scale="1.1">
+                                <img class="img-fluid img-js" src="/img/whyWeSleep.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row padding-left mt-1">
+                        <div class="col-3">
+                            <div data-tilt data-tilt-glare="true" data-tilt-scale="1.1">
+                                <img class="img-fluid img-js" src="/img/walk-to-remember.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div data-tilt data-tilt-glare="true" data-tilt-scale="1.1">
+                                <img class="img-fluid img-js" src="/img/SwamiVivekanand.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div data-tilt data-tilt-glare="true" data-tilt-scale="1.1">
+                                <img class="img-fluid img-js" src="/img/innerEngineering.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div data-tilt data-tilt-glare="true" data-tilt-scale="1.1">
+                                <img class="img-fluid img-js" src="/img/elonMusk.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row padding-left mt-1">
+                        <div class="col-3">
+                            <div data-tilt data-tilt-glare="true" data-tilt-scale="1.1">
+                                <img class="img-fluid img-js" src="/img/crypto.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div data-tilt data-tilt-glare="true" data-tilt-scale="1.1">
+                                <img class="img-fluid img-js" src="/img/harryPorter.jpeg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div data-tilt data-tilt-glare="true" data-tilt-scale="1.1">
+                                <img class="img-fluid img-js" src="/img/spiderman.jpeg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div data-tilt data-tilt-glare="true" data-tilt-scale="1.1">
+                                <img class="img-fluid img-js" src="/img/IT.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row padding-left mt-1">
+                        <div class="col-3">
+                            <div data-tilt data-tilt-glare="true" data-tilt-scale="1.1">
+                                <img class="img-fluid img-js" src="/img/karma.jfif" alt="">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div data-tilt data-tilt-glare="true" data-tilt-scale="1.1">
+                                <img class="img-fluid img-js" src="/img/AbrahamLinclon.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div data-tilt data-tilt-glare="true" data-tilt-scale="1.1">
+                                <img class="img-fluid img-js" src="/img/prospectsOfWomen.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div data-tilt data-tilt-glare="true" data-tilt-scale="1.1">
+                                <img class="img-fluid img-js" src="/img/theBestodMe.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container-fluid text-center py-4">
+    <div class="container">
+        <h2 class="my-3" style="font-family: Georgia, serif; font-weight: bold">Featured Books</h2>
+        <div class="row">
+            <% for(let book of books) { %>
+            <div class="col-md-4 col-sm-6 col-lg-3 g-4">
+                <div class="card card-bg">
+                    <a href="/allBooks/<%= book.category %>/<%= book.slug %>">
+                        <img src="<%= book.image %>" class="card-img-top rounded img-fluid img-floating"
+                            alt="<%= book.title %>" style="height: 400px">
+                    </a>
+                </div>
+            </div>
+            <% } %>
+        </div><br>
+        <a href="/allBooks" class="btn btn-lg btn-outline-info">More Books</a>
+    </div>
+</div>
+<div class="container-fluid bg-light text-center py-4">
+    <div class="container">
+        <h2 class="my-5" style="font-family: Georgia, serif; font-weight: bold">Books Recommended By</h2>
+        <div class="row">
+            <% for(let people of peoples) { %>
+            <div class="col-md-3 col-sm-4 col-lg-2">
+                <div class="card card-bg bg-light">
+                    <a href="/allPeople/<%= people.name %>">
+                        <img src="<%= people.image %>" class="card-img-top rounded img-fluid img-floating"
+                            alt="<%= people.name %>">
+                    </a>
+                    <div class="card-body text-center">
+                        <h5 class="card-title"><%= people.name %></h5>
+                        <span class="text-muted"><%= people.field %></span>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+        <a href="/allPeople" class="btn btn-lg btn-outline-info">More Personalities</a>
+    </div>
+</div>
+<div class="container-fluid py-4">
+    <div class="container text-center">
+        <h2 class="my-5" style="font-family: Georgia, serif; font-weight: bold">Most Recommended Books</h2>
+        <div class="row">
+            <% for(let book of books) { %>
+            <% if(book.recommendedBy.length > 10) { %>
+            <div class="col-md-4 col-sm-6 col-lg-3 g-4">
+                <div class="card card-bg">
+                    <a href="/allBooks/<%= book.category %>/<%= book.slug %>">
+                        <img src="<%= book.image %>" class="card-img-top rounded img-fluid img-floating"
+                            alt="<%= book.title %>" style="height: 400px">
+                    </a>
+                </div>
+                <div class="card-body text-center">
+                    <span class="text-muted"><%= book.recommendedBy.length %> Recommendations</span>
+                </div>
+            </div>
+            <% } %>
+            <% } %>
+        </div><br>
+        <a href="/mostRecommendedBooks" class="btn btn-lg btn-outline-info">More Recommended Books</a>
+    </div>
+</div>
+<div class="container-fluid text-center bg-light py-5">
+    <div class="container">
+        <h2 class="" style="font-family: Georgia, serif; font-weight: bold">Read By Categories</h2>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12 g-4">
+                <a href="/allBooks/business" class="card bg-dark text-white img-floating">
+                    <img src="/img/best-business-books.jpg" class="img-fluid"
+                        style="height: 200px; width: 100%; filter: opacity(30%)">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title" style="font-family: Georgia, serif; font-weight: bold;">Business Books</h5>
+                        <!-- <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, deleniti.</p> -->
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 g-4">
+                <a href="/allBooks/technology" class="card bg-dark text-white img-floating">
+                    <img src="/img/tech_books_2020.png" class="img-fluid"
+                        style="height: 200px; width: 100%; filter: opacity(30%)">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title" style="font-family: Georgia, serif; font-weight: bold">Technology Books
+                        </h5>
+                        <!-- <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, deleniti.</p> -->
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 g-4">
+                <a href="/allBooks/selfhelp" class="card bg-dark text-white img-floating">
+                    <img src="/img/Self-Help-Books.jpg" class="img-fluid"
+                        style="height: 200px; width: 100%; filter: opacity(30%)">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title" style="font-family: Georgia, serif; font-weight: bold">Selfhelp Books
+                        </h5>
+                        <!-- <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, deleniti.</p> -->
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 g-4">
+                <a href="/allBooks/fiction" class="card bg-dark text-white img-floating">
+                    <img src="/img/best-fiction.jpg" class="img-fluid"
+                        style="height: 200px; width: 100%; filter: opacity(30%)">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title" style="font-family: Georgia, serif; font-weight: bold">Fiction Books</h5>
+                        <!-- <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, deleniti.</p> -->
+                    </div>
+                </a>
+            </div>
+        </div><br>
+        <a href="/allBooks" class="btn btn-lg btn-outline-info">Browse More Categories</a>
+    </div>
+</div>
+<div class="container-fluid py-4">
+    <div class="container text-center">
+        <h2 class="my-3" style="font-family: Georgia, serif; font-weight: bold">Blogilary</h2>
+        <div class="row">
+            <% for(let blog of blogs) { %>
+                <div class="col-md-3 col-sm-6 col-lg-3 g-4">
+                    <div class="card card-bg">
+                        <a href="/blogs/<%= blog._id %>">
+                            <img src="<%= blog.blogImage %>" class="card-img-top rounded img-fluid img-floating" alt="<%= blog.blogTitle %>">
+                        </a>
+                    </div>
+                    <div class="card-body text-center">
+                        <span class="text-muted"><%= blog.blogTitle %></span>
+                    </div>
+                </div>
+            <% } %>
+        </div><br>
+        <a href="/blogs" class="btn btn-lg btn-outline-info">More Blogs</a>
+    </div>
+</div>
+
+
+<%- include('./partials/footer') %>

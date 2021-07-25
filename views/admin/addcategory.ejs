@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+<%- include('../partials/adminNav') %>
+
+<h1>Add book category</h1>
+<form action="/addcategory" method="POST">
+    <div>
+        <input type="text" name="title" placeholder="category">
+    </div>
+    <div><button>Add category</button></div>
+</form>
+  
+
+<%- include('../partials/footer') %>

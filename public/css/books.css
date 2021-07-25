@@ -1,0 +1,65 @@
+
+.bookCat {
+   color: black;
+   text-decoration: none;
+} 
+.cat-btn {
+   background-color: rgb(211, 211, 211) !important;
+   box-shadow: none !important;
+   color: black !important;
+   font-family: Georgia, serif;
+   font-weight: bold;
+}
+#navbar {
+   background-color: #fff !important;
+   box-shadow: 0 8px 6px -6px #999;
+}
+.book-card {
+   border: none !important;
+   border-radius: 1rem !important;
+}
+.img-over {
+   margin-top: 70px;
+}
+.p-big:first-letter {
+   float: left;
+   font-size: 60px;
+   line-height: 0.3;
+   font-weight: bold;
+   font-family: serif;
+   margin-right: 6px;
+   color: #0dcaf0;
+}
+.btn-wrng {
+   background-color: #0dcaf0;
+}
+@media only screen and (max-width: 562px) {
+   /* .b-bottom {
+      border-right: none !important;
+   } */
+   .mbl-screen {
+      padding: 0 !important;
+      margin: 0px -40px;
+   }
+   .stars {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+   }
+}
+@media only screen and (max-width: 991px) {
+   .b-bottom {
+      border-right: none !important;
+   }
+}
+.floating {  
+   animation-name: floating;
+   animation-duration: 3s;
+   animation-iteration-count: infinite;
+   animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+   from { transform: translate(0,  0px); }
+   65%  { transform: translate(0, 15px); }
+   to   { transform: translate(0, -0px); }    
+}

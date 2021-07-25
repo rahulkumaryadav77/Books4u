@@ -1,0 +1,23 @@
+<%- include('./partials/header') %>
+
+<section class="container mt-4">
+    <div class="row">
+        <p class="h1 py-3" style="font-family: Georgia, serif; font-weight: bold">Featured Personalities</p>
+        <% for(let p of people) { %>
+            <div class="col-md-3 col-sm-6">
+                <div class="card card-bg">
+                    <a href="/allPeople/<%= p.name %>">
+                        <img src="<%= p.image %>" class="card-img-top rounded img-fluid img-floating" alt="<%= p.name %>">
+                    </a>
+                    <div class="card-body text-center">
+                      <h5 class="card-title"><%= p.name %></h5>
+                      <span class="text-muted"><%= p.field %></span>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</section>
+
+<%- include('./partials/footer') %>
+ 

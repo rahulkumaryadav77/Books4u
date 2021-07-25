@@ -1,0 +1,46 @@
+<%- include('./partials/header') %>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="accordion" id="accordionPanelsStayOpenExample" style="padding: 10px 0px;">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                    <button class="accordion-button cat-btn" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                      Categories
+                    </button>
+                  </h2>
+                  <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                    <div class="accordion-body">
+                        <% for(let cat of categories) { %>
+                            <div class="container">
+                                <a href="/allBooks/<%= cat.slug %>" class="bookCat"><%= cat.title %></a>
+                            </div><hr>
+                        <% } %>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="container">
+                <p class="h2 py-2" style="font-family: Georgia, serif; font-weight: bold">Most Recommended Books</p>
+                <% for(book of books) { %>
+                    <div class="row g-4">
+                        <% for(let buk of book) { %>
+                            <% if(buk.recommendedBy.length > 10) { %>
+                                <div class="col-sm-4 col-book">
+                                    <a href="/allBooks/<%= buk.category %>/<%=buk.slug%>" class="card book-card" style="text-decoration: none; color: black;">
+                                        <img src="<%= buk.image %>" class="card-img-top bookImg img-floating" alt="Book Image">
+                                    </a>
+                                </div>
+                            <% } %>
+                        <% } %>
+                    </div><br>
+                <% } %>
+            </div>
+        </div>
+      </div>
+</div>
+
+<%- include('./partials/footer') %>

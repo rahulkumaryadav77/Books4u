@@ -1,0 +1,50 @@
+<%- include('../partials/header') %>
+<%- include('../partials/adminNav') %>
+
+<h1 class="h1 text-center">Write your Blogs <a href="/newBlogs" type="button" class="btn btn-primary"><i class="fas fa-pen-alt"></i></a></h1>
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i = 0; i < blogs.length; i++) { %>
+            <tr>
+                <th scope="row"><%= i+1 %></th>
+                <td><a href="/blogs/<%= blogs[i]._id %>" style="text-decoration: none;"><%= blogs[i].blogTitle %></a>
+                </td>
+                <td><a href="/editBlogs/<%= blogs[i]._id %>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                </td>
+
+                <td><button class="btn btn-danger" data-bs-toggle="modal"
+                        data-bs-target="#blogDelete<%= blogs[i]._id %>"><i class="fas fa-trash-alt"></i></button></td>
+                <div class="modal fade" id="blogDelete<%= blogs[i]._id %>" tabindex="-1"
+                    aria-labelledby="mapDeleteLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="mapDeleteLabel">Delete Blog</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/deleteBlog/<%= blogs[i]._id %>?_method=DELETE" method="POST">
+                                    <em>Are you sure you want to delete <%= blogs[i].blogTitle %> ?</em><br><br>
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>
+
+<%- include('../partials/footer') %>

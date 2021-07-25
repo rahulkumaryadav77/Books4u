@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+<%- include('../partials/adminNav') %>
+
+<div class="container" style="margin-top: 40px;">
+    <div class="container">
+        <h1 class="h1 text-center">Add a New Blog</h1><hr>
+        <form action="/adminBlogs" method="POST">
+            <div class="mb-3">
+                <label for="blogtitle" class="form-label">Blog Title</label>
+                <input type="text" name="title" class="form-control" id="blogtitle">
+            </div>
+            <div class="mb-3">
+                <label for="blogimage" class="form-label">Image URL</label>
+                <input type="text" name="image" class="form-control" id="blogimage">
+            </div>
+            <div class="mb-3">
+                <label for="blogauthor" class="form-label">Author Name</label>
+                <input type="text" name="author" class="form-control" id="blogauthor">
+            </div>
+            <div class="mb-3">
+                <label for="editor" class="form-label">Blog Description</label>
+                <textarea class="form-control" name="description" id="description" rows="10"></textarea>
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Add Blog</button>
+            </div>
+        </form>
+    </div>
+</div><br><br>
+
+<%- include('../partials/footer') %>

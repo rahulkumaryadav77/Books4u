@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+<%- include('../partials/adminNav') %>
+
+<h1>Add Books</h1>
+
+<form method="POST" action="/newBooks">
+
+    <input type="text" name="title" placeholder="Title"><br>
+    <textarea type="text" name="description" placeholder="description"></textarea><br>
+    <input type="text" name="image" placeholder="Image"><br>
+    <input type="text" name="Buylink" placeholder="Buylink"><br>
+    <input type="text" name="author" placeholder="Author"><br>
+    <input type="text" name="publishedDate" placeholder="Published Date"><br>
+    <input type="number" placeholder="Rating" name="rating" min="0" max="5" step="0.1"><br>
+    <label for="category">Category</label>
+    <select name="category" id="category" required>
+        <% for(let cat of category) { %>
+            <option value="<%= cat.slug %>"><%= cat.title %></option>
+        <% } %>
+    </select><br>
+    <button> submit </button>
+</form>
+
+<%- include('../partials/footer') %>

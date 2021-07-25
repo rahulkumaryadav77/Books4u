@@ -1,0 +1,38 @@
+<%- include('../partials/header') %>
+<%- include('../partials/adminNav') %>
+
+<h1>Add Peoples</h1>
+
+<form method="POST" action="/newPeople">
+
+    <div>
+        <input type="text" name="field" placeholder="Feild">
+    </div>
+    <div>
+        <input type="text" name="name" placeholder="Name">
+    </div>
+    <div>
+        <input type="text" name="image" placeholder="Image">
+    </div>
+    <div>
+        <textarea type="text" name="description" placeholder="About"></textarea>
+    </div>
+    <div>
+        <input type="button" id="recomend" value="Books recommended">
+    </div>
+    <div id="input">
+
+    </div>
+    <script>
+        const btn = document.querySelector('#recomend');
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            var input = document.createElement('div');
+            input.innerHTML = '<input type="text" name="recomendation" placeholder="Recommendation">';
+            document.getElementById('input').appendChild(input);
+        });
+    </script>
+    <button> submit </button>
+</form>
+
+<%- include('../partials/footer') %>

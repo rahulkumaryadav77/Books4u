@@ -1,0 +1,131 @@
+<%- include('./partials/header') %>
+
+<section class="text-light text-center text-md-start p-5 bg">
+    <script>
+        $('.bg').css('background', 'linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8)), url("<%= book.image %>")');
+        $('.bg').css('background-size', 'cover');
+        $('.bg').css('background-repeat', 'no-repeat');
+        $('.bg').css('background-position', 'center');
+        $('.bg').css('width', '100%');
+    </script>
+    <div class="container">
+        <div class="container d-md-flex">
+            <img src="<%= book.image %>" alt="<%= book.title %>" class="img-fluid floating">
+            <div class="px-5 mbl-screen">
+                <h1 class="pt-5" style="font-family: Georgia, serif; font-weight: bold"><%= book.title %></h1>
+                <em class="">by <%= book.author %></em><br>
+                <p class="lead py-5 p-big" style="font-family: serif;"><%= book.description %></p>
+                <div class="py-5 stars">
+                    <div class="row text-center">
+                        <div class="col-md py-3 b-bottom" style="border-right: 1px white solid;">Published On <br> <h3><%= book.publishedDate %></h3></div>
+                        <div class="col-md py-3 b-bottom" style="border-right: 1px white solid;">
+                            <!-- <%= book.rating %> Stars  -->
+                            Rating
+                            <% if(book.rating == 0.5) { %>
+                                <h3>
+                                    <i class="fas fa-star-half" style="color: yellow"></i>
+                                </h3>
+                            <% } else if(book.rating == 1) { %>
+                                <h3>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                </h3>
+                            <% } else if(book.rating == 1.5) { %>
+                                <h3>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                    <i class="fas fa-star-half" style="color: yellow"></i>
+                                </h3>
+                            <% } else if(book.rating == 2) { %>
+                                <h3>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                </h3>
+                            <% } else if(book.rating == 2.5) { %>
+                                <h3>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                    <i class="fas fa-star-half" style="color: yellow"></i>
+                                </h3> 
+                            <% } else if(book.rating == 3) { %>
+                                <h3>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                </h3>  
+                            <% } else if(book.rating == 3.5) { %>
+                                <h3>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                    <i class="fas fa-star-half" style="color: yellow"></i>
+                                </h3>
+                            <% } else if(book.rating == 4) { %>
+                                <h3>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                </h3>        
+                            <% } else if(book.rating == 4.5) { %>
+                                <h3>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                    <i class="fas fa-star-half" style="color: yellow"></i>
+                                </h3>    
+                            <% } else { %> 
+                                <h3>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                    <i class="fas fa-star" style="color: yellow"></i>
+                                </h3>
+                            <% } %>        
+                        </div>
+                        <div class="col-md py-3 b-bottom" style="border-right: 1px white solid;"><h3><%= book.category.toUpperCase() %></h3></div>
+                        <div class="col-md py-3 b-bottom">Recommendations <br> <h3><%= rcmdByPeople.length %></h3></div>
+                    </div>
+                </div>
+                <div class="text-center row g-3">
+                    <div class="col-md">
+                        <a class="btn btn-wrng btn-lg" href="<%= book.Buylink %>" target="_blank" style="color: #fff">View On Amazon</a><br>
+                    </div>
+                    <div class="dropdown col-md">
+                        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color: #fff">
+                          Share
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                          <li><a class="dropdown-item copy" href="">Copy Link  <i class="fas fa-copy"></i></a></li>
+                          <li><a class="dropdown-item wp" href="">Whatsapp  <i class="fab fa-whatsapp" style="color: green"></i></a></li>
+                          <li><a class="dropdown-item fb" href="">Facebook  <i class="fab fa-facebook" style="color: blue"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <h2 class="py-5" style="font-family: Georgia, serif; font-weight: bold">Recommended By :</h2>
+    <% for(let people of rcmdByPeople) { %>
+        <div class="card mb-3" style="max-width: 540px; background-color: #eeeeee; border: none;">
+            <div class="row g-0">
+                <a href="/allPeople/<%= people.name %>" class="col-md-4">
+                    <img class="img-fluid rounded" src="<%= people.image %>" alt="<%= people.name %>">
+                </a>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= people.name %></h5>
+                        <p class="card-text"><%= people.description.substring(0, 200) %>...</p>
+                        <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr style="max-width: 700px;">
+    <% } %>
+</div>
+
+<%- include('./partials/footer') %>
+

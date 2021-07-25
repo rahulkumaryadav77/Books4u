@@ -1,0 +1,83 @@
+<%- include('../partials/header') %>
+<%- include('../partials/adminNav') %>
+
+<div class="container mt-4 mb-4">
+    <div class="row g-4">
+        <div class="col-md-3 col-sm-12">
+            <div class="card card-1">
+                <div class="card-body">
+                    <h1 class="card-title text-center" style="font-family: Georgia, serif; font-weight: bold">Categories
+                    </h1>
+                    <h2 class="text-center"><em><%= categories.length %></em></h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-12">
+            <div class="card card-2">
+                <div class="card-body">
+                    <h1 class="card-title text-center" style="font-family: Georgia, serif; font-weight: bold">Books</h1>
+                    <h2 class="text-center"><em><%= books.length %></em></h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-12">
+            <div class="card card-3">
+                <div class="card-body">
+                    <h1 class="card-title text-center" style="font-family: Georgia, serif; font-weight: bold">
+                        Personalities</h1>
+                    <h2 class="text-center"><em><%= peoples.length %></em></h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-12">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h1 class="card-title text-center" style="font-family: Georgia, serif; font-weight: bold">
+                        Blogs</h1>
+                    <h2 class="text-center"><em><%= blogs.length %></em></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <section class="conatiner mt-4 mb-4" style="background-color: #fff;">
+        <canvas id="myChart" class="conatiner" id="piechart"></canvas id="myChart">
+        <script>
+            var xValues = ["Books", "Categories", "Personalities", "Blogs"];
+            var books = <%= books.length %>;
+            var categories = <%= categories.length %>;
+            var peoples = <%= peoples.length %>;
+            var blogs = <%= blogs.length %>;
+            var yValues = [books, categories, peoples, blogs];
+            var barColors = [
+              "rgb(92, 240, 129)",
+              "rgb(175, 116, 241)",
+              "rgb(208, 238, 99)",
+              "rgb(240, 72, 100)"
+            ];
+            
+            new Chart("myChart", {
+              type: "doughnut",
+              data: {
+                labels: xValues,
+                datasets: [{
+                  backgroundColor: barColors,
+                  data: yValues
+                }]
+              },
+              options: {
+                title: {
+                  display: true,
+                  text: "Database Infos"
+                }
+              }
+            });
+        </script>
+    </section>
+</div>
+
+<%- include('../partials/footer') %>
+
+
+
+            

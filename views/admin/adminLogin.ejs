@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+
+<% if(success && success.length > 0) { %>
+    <div class="alert alert-success" role="alert">
+      <%= success %>
+    </div>
+<% } %>    
+  
+<% if(error && error.length > 0) { %>
+    <div class="alert alert-danger" role="alert">
+      <%= error %>
+    </div>
+<% } %>
+
+<% if(warning && warning.length > 0) { %>
+    <div class="alert alert-warning" role="alert">
+      <%= warning %>
+    </div>
+<% } %>
+
+<h1>Login</h1>
+<form action="/login" method="POST">
+    <label>Username</label>
+    <input type="text" name="username" required><br>
+    <label>Password</label>
+    <input type="password" name="password" required><br>
+    <input type="submit" value="Login">
+</form>
+
+<%- include('../partials/footer') %>

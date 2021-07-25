@@ -1,0 +1,82 @@
+<%- include('../partials/header') %>
+<%- include('../partials/adminNav') %>
+
+<div class="container">
+    <h1 class="text-center py-3">Book Category <button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="far fa-plus-square"></i></button></h1>  
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Category</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/addCategory" method="POST">
+                        <div class="mb-3">
+                            <label for="cat" class="form-label">Enter Category</label>
+                            <input type="text" name="title" class="form-control" id="cat" aria-describedby="category">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Category</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% for(let i = 0; i < categories.length; i++) { %> 
+                <tr>
+                    <th scope="row"><%= i+1 %></th>
+                    <td><%= categories[i].title %></td>
+                    <td><button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#catEdit<%= categories[i]._id %>"><i class="fas fa-edit"></i></button></td>
+                    <div class="modal fade" id="catEdit<%= categories[i]._id %>" tabindex="-1" aria-labelledby="catEditLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="catEditLabel">Edit Category</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/updateCategory/<%= categories[i]._id %>?_method=PUT" method="POST">
+                                    <div class="mb-3">
+                                      <label for="cat" class="form-label">Category</label>
+                                      <input type="text" name="title" class="form-control" id="cat" aria-describedby="location" value="<%= categories[i].title %>">
+                                    </div>
+                                    <button type="submit" class="btn btn-warning">Update</button>
+                                </form>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#catDelete<%= categories[i]._id %>"><i class="fas fa-trash-alt"></i></button></td>
+                    <div class="modal fade" id="catDelete<%= categories[i]._id %>" tabindex="-1" aria-labelledby="catDeleteLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="catDeleteLabel">Delete Category</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/deleteCategory/<%= categories[i]._id %>?_method=DELETE" method="POST">
+                                    <em>Are you sure you want to delete <%= categories[i].title %> ?</em><br><br>
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </tr>
+            <% } %> 
+        </tbody>
+    </table>
+</div>
+
+<%- include('../partials/footer') %>
