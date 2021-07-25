@@ -14,7 +14,7 @@ const peopleRouter = require('./routes/people');
 const adminRouter = require('./routes/admin');
 const User = require('./models/admin');
 
-const URI = process.env.HOSTED_DB || LOCAL_DB;
+const URI = process.env.HOSTED_DB ;
 
 mongoose.connect(URI, {
     useNewUrlParser:true,
