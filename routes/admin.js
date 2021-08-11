@@ -4,10 +4,10 @@ const { asyncErrorHandler, isAdmin } = require('../middleware/middleware');
 const { getRegister, postRegister, getLogin, postLogin, getLogout, adminDashboard, adminCategory, adminBook, adminPeople, adminBlogs, newBlogs, postBlogs, blogsPage, getBlog, editBlogs, updateBlog, deleteBlog } = require('../controllers/admin');
 
 /* GET /register */
-router.get('/register', getRegister);
+//router.get('/register', getRegister);
   
 /*POST /register */
-router.post('/register', asyncErrorHandler(postRegister));
+//router.post('/register', asyncErrorHandler(postRegister));
   
 /* GET /login */
 router.get('/login', getLogin);
