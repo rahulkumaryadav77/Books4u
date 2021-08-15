@@ -83,7 +83,7 @@
                                 </h3>
                             <% } %>        
                         </div>
-                        <div class="col-md py-3 b-bottom" style="border-right: 1px white solid;"><h3><%= book.category.toUpperCase() %></h3></div>
+                        <div class="col-md py-3 b-bottom" style="border-right: 1px white solid;"><h3><%= book.category.replace('_', ' ').toUpperCase() %></h3></div>
                         <div class="col-md py-3 b-bottom">Recommendations <br> <h3><%= rcmdByPeople.length %></h3></div>
                     </div>
                 </div>
