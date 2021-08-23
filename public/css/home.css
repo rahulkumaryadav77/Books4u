@@ -136,7 +136,7 @@
 }
 
 .mask {
-    -webkit-mask: linear-gradient(180deg, rgba(2, 0, 36, 0), rgba(1, 0, 24, .9) 30%, #010013 50%, rgba(1, 0, 10, .9) 70%, transparent);
+    -webkit-mask: linear-gradient(180deg, rgba(2, 0, 36, 0), rgba(1, 0, 24, .9) 20%, #010013 50%, rgba(1, 0, 10, .9) 90%, transparent);
 }
 
 .img-js {
