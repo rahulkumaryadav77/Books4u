@@ -15,7 +15,7 @@
     <label for="category">Category</label>
     <select name="category" id="category" required>
         <% for(let cat of category) { %>
-            <option value="<%= cat.slug %>" <%=  book.category === cat.title ? 'selected' : '' %>><%= cat.title %></option>
+            <option value="<%= cat.slug %>" <%= book.category.toLowerCase() === cat.title.toLowerCase() ? 'selected' : '' %>><%= cat.title %></option>
         <% } %>
     </select><br>
     <button>Submit</button>
