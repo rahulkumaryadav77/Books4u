@@ -136,7 +136,7 @@ module.exports = {
   },
   async recommendedBooks(req, res) {
     const categories = await Category.find({});
-    const book = await Books.find({});
+    const book = await Books.find({ rating: { $gt: 4.5 } });
     const dataChunk = [];
     const chunkSize = 3;
     for (let i = 0; i < book.length; i += chunkSize) {
