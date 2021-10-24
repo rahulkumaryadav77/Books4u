@@ -151,19 +151,19 @@
         <h2 class="my-5" style="font-family: Georgia, serif; font-weight: bold">Most Recommended Books</h2>
         <div class="row">
             <% for(let book of books) { %>
-            <% if(book.rating > 4.5) { %>
-            <div class="col-md-4 col-sm-6 col-lg-3 g-4">
-                <div class="card card-bg">
-                    <a href="/allBooks/<%= book.category %>/<%= book.slug %>">
-                        <img src="<%= book.image %>" class="card-img-top rounded img-fluid img-floating"
-                            alt="<%= book.title %>" style="height: 400px">
-                    </a>
+              <% if(book.rating > 4.5) { %>
+                <div class="col-md-4 col-sm-6 g-4">
+                    <div class="card card-bg">
+                        <a href="/allBooks/<%= book.category %>/<%= book.slug %>">
+                            <img src="<%= book.image %>" class="card-img-top rounded img-fluid img-floating"
+                                alt="<%= book.title %>" style="height: 400px">
+                        </a>
+                    </div>
+                    <div class="card-body text-center">
+                        <span class="text-muted"><%= book.rating %> Stars Rating</span>
+                    </div>
                 </div>
-                <div class="card-body text-center">
-                    <span class="text-muted"><%= book.rating %> Stars Rating</span>
-                </div>
-            </div>
-            <% } %>
+              <% } %>
             <% } %>
         </div><br>
         <a href="/mostRecommendedBooks" class="btn btn-lg btn-outline-info">More Recommended Books</a>
