@@ -25,10 +25,10 @@
         <div class="col-md-9">
             <div class="container">
                 <p class="h2 py-2" style="font-family: Georgia, serif; font-weight: bold">Most Recommended Books</p>
-                <% for(book of books) { %>
+                <% for(let book of books) { %>
                     <div class="row g-4">
                         <% for(let buk of book) { %>
-                            <% if(buk.recommendedBy.length > 10) { %>
+                            <% if(buk.rating >= 4.5) { %>
                                 <div class="col-sm-4 col-book">
                                     <a href="/allBooks/<%= buk.category %>/<%=buk.slug%>" class="card book-card" style="text-decoration: none; color: black;">
                                         <img src="<%= buk.image %>" class="card-img-top bookImg img-floating" alt="Book Image">

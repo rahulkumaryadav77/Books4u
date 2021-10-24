@@ -151,7 +151,7 @@
         <h2 class="my-5" style="font-family: Georgia, serif; font-weight: bold">Most Recommended Books</h2>
         <div class="row">
             <% for(let book of books) { %>
-            <% if(book.recommendedBy.length > 10) { %>
+            <% if(book.rating >= 4.5) { %>
             <div class="col-md-4 col-sm-6 col-lg-3 g-4">
                 <div class="card card-bg">
                     <a href="/allBooks/<%= book.category %>/<%= book.slug %>">
@@ -160,14 +160,9 @@
                     </a>
                 </div>
                 <div class="card-body text-center">
-                    <span class="text-muted"><%= book.recommendedBy.length %> Recommendations</span>
+                    <span class="text-muted"><%= book.rating %> Stars Rating</span>
                 </div>
             </div>
-            <% } else { %>
-                <h2 class="text-muted">
-                  <i>Coming Soon...</i>  
-                </h2>
-                <% break %>
             <% } %>
             <% } %>
         </div><br>
