@@ -15,10 +15,11 @@ module.exports = {
     const cat = await Category.findOne({ slug: slug });
     if (cat) {
       // console.log('Category already exists');
-      req.flash('warning', 'Category already exists !')
+      req.flash('warning', 'Category already exists !');
       return res.redirect('/admin/category');
     }
     const newCat = await Category.create({ title: title, slug: slug });
+    req.flash('success', 'Category Added !');
     res.redirect('/admin/category');
   },
   async updateCategory(req, res) {
