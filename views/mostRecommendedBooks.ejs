@@ -28,19 +28,17 @@
                 <% for(let book of books) { %>
                     <div class="row g-4">
                         <% for(let buk of book) { %>
-                            <% if(buk.rating >= 4.5) { %>
-                                <div class="col-sm-4 col-book">
-                                    <a href="/allBooks/<%= buk.category %>/<%=buk.slug%>" class="card book-card" style="text-decoration: none; color: black;">
-                                        <img src="<%= buk.image %>" class="card-img-top bookImg img-floating" alt="Book Image">
-                                    </a>
-                                </div>
-                            <% } %>
-                        <% } %>
+                            <div class="col-sm-4 col-book">
+                                <a href="/allBooks/<%= buk.category %>/<%=buk.slug%>" class="card book-card" style="text-decoration: none; color: black;">
+                                    <img src="<%= buk.image %>" class="card-img-top bookImg img-floating" alt="Book Image">
+                                </a>
+                            </div>
+                          <% } %>
                     </div><br>
                 <% } %>
             </div>
         </div>
-      </div>
+    </div>
 </div>
 
 <%- include('./partials/footer') %>
